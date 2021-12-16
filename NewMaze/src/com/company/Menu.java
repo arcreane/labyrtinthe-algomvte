@@ -17,9 +17,11 @@ public class Menu {
 
     public static void menu() throws IOException {
 
+        //Commande pour clear la console
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
+        //Affichage pour le menu sur la console
         showTitle("Menu");
 
         System.out.println("Do you want to play at a maze game ?");
@@ -32,10 +34,11 @@ public class Menu {
         System.out.println("Enter the correct number :");
         System.out.print("-> ");
 
+        //Scanner pour mettre le nombre choisit
         Scanner menu = new Scanner(System.in);
         int choix = menu.nextInt();
 
-        if (choix == 1) {
+        if (choix == 1) { //Si 1 choisit alors choisir la difficulté
 
             System.out.print("\033[H\033[2J");
             System.out.flush();
@@ -55,6 +58,7 @@ public class Menu {
 
             System.out.print("-> ");
 
+            //Scanner pour mettre le nombre choisit
             Scanner difficulty = new Scanner(System.in);
             int choix2 = difficulty.nextInt();
 
@@ -62,42 +66,54 @@ public class Menu {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
+                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau facile
                 MazeGenerator maze = new MazeGenerator(12, 6);
+
+                //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
-                //finish();
             }else if (choix2 == 2) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
+                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau moyen
                 MazeGenerator maze = new MazeGenerator(25, 13);
+
+                //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
-                //finish();
             }else if (choix2 == 3) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
+                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau difficile
                 MazeGenerator maze = new MazeGenerator(50, 25);
+
+                //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
-                //finish();
             }else if (choix2 == 4) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
+                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau très difficile
                 MazeGenerator maze = new MazeGenerator(100, 50);
+
+                //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
-                //finish();
             }else if (choix2 == 5) {
 
+                //Niveau Custom pour faire son propre labyrinthe
+
+                //On choisit une largeur de labyrinthe
                 System.out.println(" ");
                 showTitle("Select  a  maze  width  =");
 
-                Scanner largueur = new Scanner(System.in);
-                int width = largueur.nextInt();
+                Scanner largeur = new Scanner(System.in);
+                int width = largeur.nextInt();
 
+                //On choisit une longueur de labyrinthe
                 System.out.println(" ");
                 showTitle("Select  a  maze  length  =");
 
@@ -107,16 +123,21 @@ public class Menu {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
+                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau custom
                 MazeGenerator maze = new MazeGenerator(width, length);
+
+                //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
-                //finish();
             }
 
         }else if (choix == 2) {
+            //On stop le system
             return;
+
         }else {
             System.out.println("This option doesn't exist");
+            //On relance le menu du début
             menu();
         }
 
@@ -127,6 +148,7 @@ public class Menu {
 
     public static void finish() throws IOException {
 
+        //Après affichage du labyrinthe on demande si le joueur à trouvé tout seul ou s'il veut la solution
         System.out.println("Write 'FINISH' when you arrive at the Maze's end or write 'SOLUCE' to have the Maze's resolution :");
         System.out.print("->");
 
@@ -141,6 +163,7 @@ public class Menu {
 
             showTitle("Voici  la  reponse  = ");
 
+            //On incremente la class InputStream
             InputStream f = new FileInputStream("maze.txt");
 
             String[] lines = readLines (f);
@@ -153,17 +176,20 @@ public class Menu {
 
             showTitle("Try again");
 
+            //On met un moment de pause afin de laisser afficher le titre
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
+            //On affiche de nouveau le menu pour une nouvelle partie
             menu();
         }
 
     }
 
+    //Fonction afin d'afficher un texte en grand dans la console prit d'une API
     public static void showTitle(String text) {
         text = text.replace(" ", "%20");
 

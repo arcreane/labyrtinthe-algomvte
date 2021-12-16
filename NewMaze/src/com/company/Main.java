@@ -19,15 +19,18 @@ class MazeGenerator {
         generateMaze(0, 0);
     }
 
+    //fonction qui va venir afficher la grille du labyrinthe
     public void display() throws IOException {
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
+        //On vient copier le labyrinthe généré dans un fichier txt
         BufferedWriter writer = new BufferedWriter(new FileWriter("maze.txt", false));
 
+        //Pour chaque condition, on génère le labyrinthe dans la console et dans le fichier txt
         for (int i = 0; i < y; i++) {
 
-            // draw the north edge
+            //On fait les lignes du dessus de chaque cellule
             for (int j = 0; j < x; j++) {
                 System.out.print((maze[j][i] & 1) == 0 ? "----" : "|   ");
                 writer.write((maze[j][i] & 1) == 0 ? "----" : "|   ");
@@ -35,7 +38,7 @@ class MazeGenerator {
             System.out.println("|");
             writer.write("|\n");
 
-            // draw the west edge
+            //On fait les lignes sur les côtés des cellules
             for (int j = 0; j < x; j++) {
                 System.out.print((maze[j][i] & 8) == 0 ? "|   " : "    ");
                 writer.write((maze[j][i] & 8) == 0 ? "|   " : "    ");
@@ -44,7 +47,7 @@ class MazeGenerator {
             writer.write("|\n");
         }
 
-        // draw the bottom line
+        //On fait la dernière ligne du labyrinthe
         for (int j = 0; j < x ; j++) {
             System.out.print("----");
             writer.write("----");
@@ -55,6 +58,7 @@ class MazeGenerator {
         writer.flush();
     }
 
+    //Fonction qui va générer les couloirs du labyrinthe à partir de la grille créée
     private void generateMaze(int cx, int cy) throws IOException {
         DIR[] dirs = DIR.values();
         Collections.shuffle(Arrays.asList(dirs));
@@ -77,6 +81,7 @@ class MazeGenerator {
         }
     }
 
+    //Fonction où on vient préciser qu'une valeur sera plus petite que l'autre mais toujours au dessus de 0
     private static boolean between(int v, int upper) {
         return (v >= 0) && (v < upper);
     }
@@ -88,7 +93,7 @@ class MazeGenerator {
         private final int dy;
         private DIR opposite;
 
-        // use the static initializer to resolve forward references
+        //On utilise l'initialiseur statique pour résoudre les références directes
         static {
             N.opposite = S;
             S.opposite = N;
