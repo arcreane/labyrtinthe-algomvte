@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 
 import java.util.Collections;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 class MazeGenerator {
@@ -141,6 +142,8 @@ class MazeGenerator {
         System.out.println(" ");
         System.out.println("Enter the correct number :");
 
+        System.out.print("-> ");
+
         Scanner menu = new Scanner(System.in);
         int choix = menu.nextInt();
 
@@ -162,6 +165,8 @@ class MazeGenerator {
             System.out.println(" ");
             System.out.println("Enter the correct number :");
 
+            System.out.print("-> ");
+
             Scanner difficulty = new Scanner(System.in);
             int choix2 = difficulty.nextInt();
 
@@ -171,24 +176,32 @@ class MazeGenerator {
 
                 MazeGenerator maze = new MazeGenerator(12, 6);
                 maze.display();
+
+                finish();
             }else if (choix2 == 2) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
                 MazeGenerator maze = new MazeGenerator(25, 13);
                 maze.display();
+
+                finish();
             }else if (choix2 == 3) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
                 MazeGenerator maze = new MazeGenerator(50, 25);
                 maze.display();
+
+                finish();
             }else if (choix2 == 4) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
 
                 MazeGenerator maze = new MazeGenerator(100, 50);
                 maze.display();
+
+                finish();
             }else if (choix2 == 5) {
 
                 System.out.println(" ");
@@ -208,6 +221,8 @@ class MazeGenerator {
 
                 MazeGenerator maze = new MazeGenerator(width, length);
                 maze.display();
+
+                finish();
             }
 
         }else if (choix == 2) {
@@ -219,6 +234,22 @@ class MazeGenerator {
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
+
+    }
+
+    public static void finish() {
+
+        System.out.println("Write 'FINISH' when you arrive at the Maze's end");
+        System.out.print("->");
+
+        Scanner fin = new Scanner(System.in);
+        String end = fin.next();
+
+        if (Objects.equals(end, "FINISH")) {
+            showTitle("You  win  against  the  Maze  !");
+        }else {
+            showTitle("Voici la réponse : ");
+        }
 
     }
 
