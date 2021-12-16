@@ -80,6 +80,7 @@ public class Solver {
 
 
     public static String[] expandHorizontally(char[][] maze) {
+
         char[] tmp = new char[3];
         String[] lines = new String[maze.length];
         for (int i = 0; i < maze.length; i++) {

@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import static com.company.Solver.*;
+import static com.company.Solver.solveMaze;
 
 class MazeGenerator {
     private final int x;
@@ -58,8 +59,6 @@ class MazeGenerator {
             System.out.print("----");
             writer.write("----");
         }
-//        System.out.println("-");
-//        writer.write("-\n");
         System.out.println("- \uD83D\uDEAA ");
         writer.write("- \uD83D\uDEAA ");
 
@@ -117,31 +116,7 @@ class MazeGenerator {
     public static void main(String[] args) throws IOException {
 
         Menu();
-
-        System.out.println("Write 'FINISH' when you arrive at the Maze's end or write 'SOLUCE' to have the Maze's resolution :");
-        System.out.print("->");
-
-        Scanner fin = new Scanner(System.in);
-        String end = fin.next();
-
-        if (Objects.equals(end, "FINISH")) {
-
-            showTitle("You  win  against  the  Maze  !");
-
-        }else if (Objects.equals(end, "SOLUCE")){
-
-            showTitle("Voici  la  reponse  = ");
-
-            InputStream f = new FileInputStream("maze.txt");
-
-            String[] lines = readLines (f);
-            char[][] mazeSolver = decimateHorizontally (lines);
-            solveMaze (mazeSolver);
-            String[] solvedLines = expandHorizontally (mazeSolver);
-            for (int i = 0  ;  i < solvedLines.length  ;  i++)
-                System.out.println (solvedLines[i]);
-
-        }
+        finish();
 
     }
 
@@ -163,6 +138,9 @@ class MazeGenerator {
 
     public static void Menu() throws IOException {
 
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
         showTitle("Menu");
 
         System.out.println("Do you want to play at a maze game ?");
@@ -173,7 +151,6 @@ class MazeGenerator {
 
         System.out.println(" ");
         System.out.println("Enter the correct number :");
-
         System.out.print("-> ");
 
         Scanner menu = new Scanner(System.in);
@@ -266,6 +243,45 @@ class MazeGenerator {
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
+
+    }
+
+    public static void finish() throws IOException {
+
+        System.out.println("Write 'FINISH' when you arrive at the Maze's end or write 'SOLUCE' to have the Maze's resolution :");
+        System.out.print("->");
+
+        Scanner fin = new Scanner(System.in);
+        String end = fin.next();
+
+        if (Objects.equals(end, "FINISH")) {
+
+            showTitle("You  win  against  the  Maze  !");
+
+        }else if (Objects.equals(end, "SOLUCE")){
+
+            showTitle("Voici  la  reponse  = ");
+
+            InputStream f = new FileInputStream("maze.txt");
+
+            String[] lines = readLines (f);
+            char[][] mazeSolver = decimateHorizontally (lines);
+            solveMaze (mazeSolver);
+            String[] solvedLines = expandHorizontally (mazeSolver);
+            for (int i = 0  ;  i < solvedLines.length  ;  i++) {
+                System.out.println (solvedLines[i]);
+            }
+
+            showTitle("Try again");
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            Menu();
+        }
 
     }
 
