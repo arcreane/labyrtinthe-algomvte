@@ -1,9 +1,10 @@
 package com.company;
 
-import java.io.*;
-import java.util.Collections;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
-import static com.company.Menu.finish;
+import java.util.Collections;
 
 class MazeGenerator {
     private final int x;
@@ -14,7 +15,7 @@ class MazeGenerator {
     public MazeGenerator(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
-        maze = new int[this.x][this.y];
+        maze   = new int[this.x][this.y];
 
         generateMaze(0, 0);
     }
@@ -60,11 +61,15 @@ class MazeGenerator {
 
     //Fonction qui va générer les couloirs du labyrinthe à partir de la grille créée
     private void generateMaze(int cx, int cy) throws IOException {
+
         DIR[] dirs = DIR.values();
         Collections.shuffle(Arrays.asList(dirs));
+
         for (DIR dir : dirs) {
+
             int nx = cx + dir.dx;
             int ny = cy + dir.dy;
+
             if (between(nx, x) && between(ny, y)
                     && (maze[nx][ny] == 0)) {
 
@@ -103,8 +108,8 @@ class MazeGenerator {
 
         DIR(int bit, int dx, int dy) {
             this.bit = bit;
-            this.dx = dx;
-            this.dy = dy;
+            this.dx  = dx;
+            this.dy  = dy;
         }
     }
 
@@ -112,7 +117,7 @@ class MazeGenerator {
 
         Menu menu = new Menu();
         menu.menu();
-        finish();
+        menu.finish();
 
     }
 

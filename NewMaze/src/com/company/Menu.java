@@ -11,11 +11,12 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import static com.company.Solver.*;
-import static com.company.Solver.expandHorizontally;
-
 public class Menu {
 
-    public static void menu() throws IOException {
+    Chrono timer = new Chrono();
+
+
+    public void menu() throws IOException {
 
         //Commande pour clear la console
         System.out.print("\033[H\033[2J");
@@ -72,6 +73,8 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                timer.start();
+
             }else if (choix2 == 2) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
@@ -81,6 +84,8 @@ public class Menu {
 
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
+
+                timer.start();
 
             }else if (choix2 == 3) {
                 System.out.println(" ");
@@ -92,6 +97,8 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                timer.start();
+
             }else if (choix2 == 4) {
                 System.out.println(" ");
                 System.out.println("  ⬇️");
@@ -101,6 +108,8 @@ public class Menu {
 
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
+
+                timer.start();
 
             }else if (choix2 == 5) {
 
@@ -129,6 +138,8 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                timer.start();
+
             }
 
         }else if (choix == 2) {
@@ -146,7 +157,7 @@ public class Menu {
 
     }
 
-    public static void finish() throws IOException {
+    public void finish() throws IOException {
 
         //Après affichage du labyrinthe on demande si le joueur à trouvé tout seul ou s'il veut la solution
         System.out.println("Write 'FINISH' when you arrive at the Maze's end or write 'SOLUCE' to have the Maze's resolution :");
@@ -157,9 +168,15 @@ public class Menu {
 
         if (Objects.equals(end, "FINISH")) {
 
+            timer.stop();
+
             showTitle("You  win  against  the  Maze  !");
 
+            System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
+
         }else if (Objects.equals(end, "SOLUCE")){
+
+            timer.stop();
 
             showTitle("Voici  la  reponse  = ");
 
@@ -173,6 +190,8 @@ public class Menu {
             for (int i = 0  ;  i < solvedLines.length  ;  i++) {
                 System.out.println (solvedLines[i]);
             }
+
+            System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
 
             showTitle("Try again");
 
