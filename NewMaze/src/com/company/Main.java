@@ -101,22 +101,25 @@ class MazeGenerator {
 
     public static void main(String[] args) {
 
-        System.out.println(" ");
-        showTitle("Select  a  maze  width  =");
+        TestMaze maze = new TestMaze();
+        maze.createMaze();
 
-        //Scanner largueur = new Scanner(System.in);
-        int width = 20;//largueur.nextInt();
-
-        System.out.println(" ");
-        showTitle("Select  a  maze  length  =");
-
-        //Scanner longueur = new Scanner(System.in);
-        int length = 8;//longueur.nextInt();
-
-        int x = args.length >= 1 ? (Integer.parseInt(args[0])) : width;
-        int y = args.length == 2 ? (Integer.parseInt(args[1])) : length;
-        MazeGenerator maze = new MazeGenerator(x, y);
-        maze.display();
+//        System.out.println(" ");
+//        showTitle("Select  a  maze  width  =");
+//
+//        //Scanner largueur = new Scanner(System.in);
+//        int width = 20;//largueur.nextInt();
+//
+//        System.out.println(" ");
+//        showTitle("Select  a  maze  length  =");
+//
+//        //Scanner longueur = new Scanner(System.in);
+//        int length = 8;//longueur.nextInt();
+//
+//        int x = args.length >= 1 ? (Integer.parseInt(args[0])) : width;
+//        int y = args.length == 2 ? (Integer.parseInt(args[1])) : length;
+//        MazeGenerator maze = new MazeGenerator(x, y);
+//        maze.display();
     }
 
     public static void showTitle(String text) {
