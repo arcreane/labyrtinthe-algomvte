@@ -1,5 +1,6 @@
 package com.company;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 
@@ -29,7 +30,6 @@ class MazeGenerator {
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
-        System.out.println("test");
         for (int i = 0; i < y; i++) {
 
             // draw the north edge
@@ -62,12 +62,12 @@ class MazeGenerator {
                     && (maze[nx][ny] == 0)) {
                 maze[cx][cy] |= dir.bit;
                 maze[nx][ny] |= dir.opposite.bit;
-                display();
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+//                display();
+//                try {
+//                    Thread.sleep(20);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
                 generateMaze(nx, ny);
             }
         }
@@ -101,25 +101,11 @@ class MazeGenerator {
 
     public static void main(String[] args) {
 
-        TestMaze maze = new TestMaze();
-        maze.createMaze();
+//        TestMaze maze = new TestMaze();
+//        maze.createMaze();
 
-//        System.out.println(" ");
-//        showTitle("Select  a  maze  width  =");
-//
-//        //Scanner largueur = new Scanner(System.in);
-//        int width = 20;//largueur.nextInt();
-//
-//        System.out.println(" ");
-//        showTitle("Select  a  maze  length  =");
-//
-//        //Scanner longueur = new Scanner(System.in);
-//        int length = 8;//longueur.nextInt();
-//
-//        int x = args.length >= 1 ? (Integer.parseInt(args[0])) : width;
-//        int y = args.length == 2 ? (Integer.parseInt(args[1])) : length;
-//        MazeGenerator maze = new MazeGenerator(x, y);
-//        maze.display();
+        Menu();
+
     }
 
     public static void showTitle(String text) {
@@ -136,6 +122,85 @@ class MazeGenerator {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void Menu() {
+
+        showTitle("Menu");
+
+        System.out.println("Do you want to play at a maze game ?");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("            1. Choose your difficulty");
+        System.out.println("            2. Quit the game");
+        System.out.println("-------------------------------------------------------");
+
+        System.out.println(" ");
+        System.out.println("Enter the correct number :");
+
+        Scanner menu = new Scanner(System.in);
+        int choix = menu.nextInt();
+
+        if (choix == 1) {
+
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+
+            showTitle("Choose  your  difficulty");
+
+            System.out.println("-------------------------------------------------------");
+            System.out.println("            1. Easy");
+            System.out.println("            2. Medium");
+            System.out.println("            3. Hard");
+            System.out.println("            4. Hardcore");
+            System.out.println("            5. Custom");
+            System.out.println("-------------------------------------------------------");
+
+            System.out.println(" ");
+            System.out.println("Enter the correct number :");
+
+            Scanner difficulty = new Scanner(System.in);
+            int choix2 = difficulty.nextInt();
+
+            if (choix2 == 1) {
+                MazeGenerator maze = new MazeGenerator(12, 6);
+                maze.display();
+            }else if (choix2 == 2) {
+                MazeGenerator maze = new MazeGenerator(25, 13);
+                maze.display();
+            }else if (choix2 == 3) {
+                MazeGenerator maze = new MazeGenerator(50, 25);
+                maze.display();
+            }else if (choix2 == 4) {
+                MazeGenerator maze = new MazeGenerator(100, 50);
+                maze.display();
+            }else if (choix2 == 5) {
+
+                System.out.println(" ");
+                showTitle("Select  a  maze  width  =");
+
+                Scanner largueur = new Scanner(System.in);
+                int width = largueur.nextInt();
+
+                System.out.println(" ");
+                showTitle("Select  a  maze  length  =");
+
+                Scanner longueur = new Scanner(System.in);
+                int length = longueur.nextInt();
+
+                MazeGenerator maze = new MazeGenerator(width, length);
+                maze.display();
+            }
+
+        }else if (choix == 2) {
+            return;
+        }else {
+            System.out.println("This option doesn't exist");
+            Menu();
+        }
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
     }
 
 }
