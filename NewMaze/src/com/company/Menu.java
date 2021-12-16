@@ -13,8 +13,8 @@ import java.util.Scanner;
 import static com.company.Solver.*;
 public class Menu {
 
+    //On incremente la class du timer
     Chrono timer = new Chrono();
-
 
     public void menu() throws IOException {
 
@@ -73,6 +73,7 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                //Lancement du timer après création du labyrinthe
                 timer.start();
 
             }else if (choix2 == 2) {
@@ -85,6 +86,7 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                //Lancement du timer après création du labyrinthe
                 timer.start();
 
             }else if (choix2 == 3) {
@@ -97,6 +99,7 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                //Lancement du timer après création du labyrinthe
                 timer.start();
 
             }else if (choix2 == 4) {
@@ -109,6 +112,7 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                //Lancement du timer après création du labyrinthe
                 timer.start();
 
             }else if (choix2 == 5) {
@@ -138,6 +142,7 @@ public class Menu {
                 //On affiche le labyrinthe avec la fonction display
                 maze.display();
 
+                //Lancement du timer après création du labyrinthe
                 timer.start();
 
             }
@@ -168,14 +173,17 @@ public class Menu {
 
         if (Objects.equals(end, "FINISH")) {
 
+            //Stop du timer après victoire du joueur
             timer.stop();
 
             showTitle("You  win  against  the  Maze  !");
 
+            //Affichage du résultat du timer
             System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
 
         }else if (Objects.equals(end, "SOLUCE")){
 
+            //Stop du timer après abandon du joueur
             timer.stop();
 
             showTitle("Voici  la  reponse  = ");
@@ -191,6 +199,7 @@ public class Menu {
                 System.out.println (solvedLines[i]);
             }
 
+            //Affichage du résultat du timer
             System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
 
             showTitle("Try again");
