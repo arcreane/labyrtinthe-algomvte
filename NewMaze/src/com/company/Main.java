@@ -46,10 +46,10 @@ class MazeGenerator {
         }
 
         // draw the bottom line
-        for (int j = 0; j < x; j++) {
+        for (int j = 0; j < x - 1; j++) {
             System.out.print("----");
         }
-        System.out.println("|");
+        System.out.println("- \uD83D\uDEAA ");
     }
 
     private void generateMaze(int cx, int cy) {
@@ -60,7 +60,11 @@ class MazeGenerator {
             int ny = cy + dir.dy;
             if (between(nx, x) && between(ny, y)
                     && (maze[nx][ny] == 0)) {
-                maze[cx][cy] |= dir.bit;
+                if (cx == 0) {
+                    maze[cx][cy] |= dir.bit - 1;
+                }else {
+                    maze[cx][cy] |= dir.bit;
+                }
                 maze[nx][ny] |= dir.opposite.bit;
 //                display();
 //                try {
@@ -162,15 +166,27 @@ class MazeGenerator {
             int choix2 = difficulty.nextInt();
 
             if (choix2 == 1) {
+                System.out.println(" ");
+                System.out.println("  ⬇️");
+
                 MazeGenerator maze = new MazeGenerator(12, 6);
                 maze.display();
             }else if (choix2 == 2) {
+                System.out.println(" ");
+                System.out.println("  ⬇️");
+
                 MazeGenerator maze = new MazeGenerator(25, 13);
                 maze.display();
             }else if (choix2 == 3) {
+                System.out.println(" ");
+                System.out.println("  ⬇️");
+
                 MazeGenerator maze = new MazeGenerator(50, 25);
                 maze.display();
             }else if (choix2 == 4) {
+                System.out.println(" ");
+                System.out.println("  ⬇️");
+
                 MazeGenerator maze = new MazeGenerator(100, 50);
                 maze.display();
             }else if (choix2 == 5) {
@@ -186,6 +202,9 @@ class MazeGenerator {
 
                 Scanner longueur = new Scanner(System.in);
                 int length = longueur.nextInt();
+
+                System.out.println(" ");
+                System.out.println("  ⬇️");
 
                 MazeGenerator maze = new MazeGenerator(width, length);
                 maze.display();
