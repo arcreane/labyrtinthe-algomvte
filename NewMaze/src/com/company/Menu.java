@@ -12,6 +12,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import static com.company.Solver.*;
+
 public class Menu {
 
     //On incremente la class du timer
@@ -128,9 +129,6 @@ public class Menu {
             showTitle("You  win  against  the  Maze  !");
             System.out.println(" ");
 
-            //Affichage du résultat du timer
-            //System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
-
             //On incremente la class du popup
             JFrame jFrame = new JFrame();
             JOptionPane.showMessageDialog(jFrame, "You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
@@ -153,11 +151,6 @@ public class Menu {
             for (int i = 0  ;  i < solvedLines.length  ;  i++) {
                 System.out.println (solvedLines[i]);
             }
-
-            //Affichage du résultat du timer
-//            System.out.println(" ");
-//            System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
-//            System.out.println(" ");
 
             //On incremente la class du popup
             JFrame jFrame = new JFrame();

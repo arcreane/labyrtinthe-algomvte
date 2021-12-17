@@ -8,7 +8,7 @@ import java.util.Collections;
 
 import static com.company.Menu.showTitle;
 
-class MazeGenerator {
+public class MazeGenerator {
     private final int x;
     private final int y;
     private final int[][] maze;
@@ -71,7 +71,7 @@ class MazeGenerator {
         //On initialise Le tableau avec les directions
         DIR[] dirs = DIR.values();
 
-        //On mélange les directions
+        //On mélange les directions et avoir toujours une valeur différente
         Collections.shuffle(Arrays.asList(dirs));
 
         //On va faire pour chaque direction
@@ -154,8 +154,10 @@ class MazeGenerator {
 
 /*
 
-cd /Users/landemainetheo/Documents/GitHub/labyrtinthe-algomvte/NewMaze/
-java -jar untitled104.jar
+    Lancer le programme sur le terminal :
+
+    cd /Users/landemainetheo/Documents/GitHub/labyrtinthe-algomvte/NewMaze/
+    java -jar untitled104.jar
 
  */
 

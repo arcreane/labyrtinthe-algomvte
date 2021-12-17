@@ -88,7 +88,7 @@ public class Solver {
 
         char[] tmp = new char[3];
         String[] lines = new String[maze.length];
-        
+
         for (int i = 0; i < maze.length; i++) {
             StringBuilder sb = new StringBuilder(maze[i].length * 2);
             for (int j = 0; j < maze[i].length; j++)
