@@ -17,9 +17,6 @@ public class Menu {
     //On incremente la class du timer
     Chrono timer = new Chrono();
 
-    //On incremente la class du popup
-    JFrame jFrame = new JFrame();
-
     public void menu() throws IOException {
 
         //Commande pour clear la console
@@ -68,56 +65,20 @@ public class Menu {
             int choix2 = difficulty.nextInt();
 
             if (choix2 == 1) {
-                System.out.println(" ");
-                System.out.println("  ⬇️");
 
-                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau facile
-                MazeGenerator maze = new MazeGenerator(12, 6);
-
-                //On affiche le labyrinthe avec la fonction display
-                maze.display();
-
-                //Lancement du timer après création du labyrinthe
-                timer.start();
+                levelMaze(12, 6);
 
             }else if (choix2 == 2) {
-                System.out.println(" ");
-                System.out.println("  ⬇️");
 
-                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau moyen
-                MazeGenerator maze = new MazeGenerator(25, 13);
-
-                //On affiche le labyrinthe avec la fonction display
-                maze.display();
-
-                //Lancement du timer après création du labyrinthe
-                timer.start();
+                levelMaze(25, 13);
 
             }else if (choix2 == 3) {
-                System.out.println(" ");
-                System.out.println("  ⬇️");
 
-                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau difficile
-                MazeGenerator maze = new MazeGenerator(50, 25);
-
-                //On affiche le labyrinthe avec la fonction display
-                maze.display();
-
-                //Lancement du timer après création du labyrinthe
-                timer.start();
+                levelMaze(50, 25);
 
             }else if (choix2 == 4) {
-                System.out.println(" ");
-                System.out.println("  ⬇️");
 
-                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau très difficile
-                MazeGenerator maze = new MazeGenerator(100, 50);
-
-                //On affiche le labyrinthe avec la fonction display
-                maze.display();
-
-                //Lancement du timer après création du labyrinthe
-                timer.start();
+                levelMaze(100, 50);
 
             }else if (choix2 == 5) {
 
@@ -128,26 +89,16 @@ public class Menu {
                 showTitle("Select  a  maze  width  =");
 
                 Scanner largeur = new Scanner(System.in);
-                int width = largeur.nextInt();
+                int x = largeur.nextInt();
 
                 //On choisit une longueur de labyrinthe
                 System.out.println(" ");
                 showTitle("Select  a  maze  length  =");
 
                 Scanner longueur = new Scanner(System.in);
-                int length = longueur.nextInt();
+                int y = longueur.nextInt();
 
-                System.out.println(" ");
-                System.out.println("  ⬇️");
-
-                //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau custom
-                MazeGenerator maze = new MazeGenerator(width, length);
-
-                //On affiche le labyrinthe avec la fonction display
-                maze.display();
-
-                //Lancement du timer après création du labyrinthe
-                timer.start();
+                levelMaze(x, y);
 
             }
 
@@ -185,8 +136,11 @@ public class Menu {
             System.out.println(" ");
 
             //Affichage du résultat du timer
-            JOptionPane.showMessageDialog(jFrame, "You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
             //System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
+
+            //On incremente la class du popup
+            JFrame jFrame = new JFrame();
+            JOptionPane.showMessageDialog(jFrame, "You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
 
         }else if (Objects.equals(end, "SOLUCE")){
 
@@ -212,6 +166,8 @@ public class Menu {
 //            System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
 //            System.out.println(" ");
 
+            //On incremente la class du popup
+            JFrame jFrame = new JFrame();
             JOptionPane.showMessageDialog(jFrame, "You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
 
             showTitle("Try again");
@@ -243,5 +199,21 @@ public class Menu {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void levelMaze(int x, int y) throws IOException {
+
+        System.out.println(" ");
+        System.out.println("  ⬇️");
+
+        //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau très difficile
+        MazeGenerator maze = new MazeGenerator(x, y);
+
+        //On affiche le labyrinthe avec la fonction display
+        maze.display();
+
+        //Lancement du timer après création du labyrinthe
+        timer.start();
+
     }
 }
