@@ -15,7 +15,7 @@ public class Solver {
         return lines.toArray(new String[0]);
     }
 
-    //Fonction qui va diviser par 2 la taille du labyrinthe
+    //Fonction qui va diviser par 2 le labyrinthe afin de supprimer les espaces en trop pour ne pas confondre de chemin
     public static char[][] decimateHorizontally(String[] lines) {
 
         final int width = (lines[0].length() + 1) / 2;
@@ -37,6 +37,7 @@ public class Solver {
                 switch (i) {
                     // 0 = up, 1 = right, 2 = down, 3 = left
                     case 0:
+                        //regarde si voisin vide pour rentrer dedans et bouger dans sa direction
                         if (maze[y - 1][x] == ' ')
                             ok = solveMazeRecursively(maze, x, y - 2, 2);
                         break;
@@ -54,7 +55,7 @@ public class Solver {
                         break;
                 }
 
-        //Savoir si la condition est finie
+        //Savoir si la condition est finie car bout des coordonnées
         if (x == 1 && y == 1)
             ok = true;
 
@@ -79,11 +80,12 @@ public class Solver {
         return ok;
     }
 
+    //On apelle la fonction avec les coordonnées de la fin du labyrinthe
     public static void solveMaze(char[][] maze) {
         solveMazeRecursively(maze, maze[0].length - 2, maze.length - 2, -1);
     }
 
-    //Fonction qui va remettre le labyrinthe en entier après l'avoir divisé par 2
+    //Fonction qui va remettre le labyrinthe en entier après l'avoir divisé par 2 pour remettre les espaces pour l'affichage
     public static String[] expandHorizontally(char[][] maze) {
 
         char[] tmp = new char[3];

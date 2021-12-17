@@ -9,7 +9,6 @@
     <list default="true" id="121af14e-b514-45ea-8055-87bbf95bfbf8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MazeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
