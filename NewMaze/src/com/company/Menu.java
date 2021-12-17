@@ -19,10 +19,6 @@ public class Menu {
 
     public void menu() throws IOException {
 
-        //Commande pour clear la console
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
         //Affichage pour le menu sur la console
         showTitle("Menu");
 
@@ -111,9 +107,6 @@ public class Menu {
             //On relance le menu du début
             menu();
         }
-
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
 
     }
 

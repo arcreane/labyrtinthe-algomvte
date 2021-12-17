@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="121af14e-b514-45ea-8055-87bbf95bfbf8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/untitled104_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maze.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maze.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator$DIR.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator$DIR.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MazeGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +95,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.MazeGenerator">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
