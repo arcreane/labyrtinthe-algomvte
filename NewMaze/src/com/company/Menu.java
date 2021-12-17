@@ -181,6 +181,8 @@ public class Menu {
             //Affichage du résultat du timer
             System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
 
+            menu();
+
         }else if (Objects.equals(end, "SOLUCE")){
 
             //Stop du timer après abandon du joueur

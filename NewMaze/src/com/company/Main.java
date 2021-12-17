@@ -62,18 +62,27 @@ class MazeGenerator {
     //Fonction qui va générer les couloirs du labyrinthe à partir de la grille créée
     private void generateMaze(int cx, int cy) throws IOException {
 
+        //On initialise Le tableau avec les directions
         DIR[] dirs = DIR.values();
+
+        //On mélange les directions
         Collections.shuffle(Arrays.asList(dirs));
 
+        //On va faire pour chaque direction
         for (DIR dir : dirs) {
 
+            //On calcul les coordonnées de x et y
             int nx = cx + dir.dx;
             int ny = cy + dir.dy;
 
+            //On regarde si les nouvelles coordonnées sont bien dans le labyrinthe et que les cellules ne sont pas visitées
             if (between(nx, x) && between(ny, y)
                     && (maze[nx][ny] == 0)) {
 
+                //On définit la ligne actuelle et la colonne actuelle avec les directions
                 maze[cx][cy] |= dir.bit;
+
+                //On définit la nouvelle ligne et la nouvelle colonne avec les directions
                 maze[nx][ny] |= dir.opposite.bit;
 //                display();
 //                try {
@@ -98,7 +107,7 @@ class MazeGenerator {
         private final int dy;
         private DIR opposite;
 
-        //On utilise l'initialiseur statique pour résoudre les références directes
+        //On initialise les directions opposées for chaque directions
         static {
             N.opposite = S;
             S.opposite = N;
@@ -106,6 +115,7 @@ class MazeGenerator {
             W.opposite = E;
         }
 
+        //Constructeur pour les directions
         DIR(int bit, int dx, int dy) {
             this.bit = bit;
             this.dx  = dx;
