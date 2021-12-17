@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Solver {
 
+    //Fonction qui va servir de lire le labyrinthe du fichier txt pour le résoudre plus tard
     public static String[] readLines(InputStream f) throws IOException {
-        BufferedReader r =
-                new BufferedReader(new InputStreamReader(f, "US-ASCII"));
+        BufferedReader r = new BufferedReader(new InputStreamReader(f, "US-ASCII"));
         ArrayList<String> lines = new ArrayList<String>();
         String line;
         while ((line = r.readLine()) != null)
@@ -15,10 +15,12 @@ public class Solver {
         return lines.toArray(new String[0]);
     }
 
-
+    //Fonction qui va diviser par 2 la taille du labyrinthe
     public static char[][] decimateHorizontally(String[] lines) {
+
         final int width = (lines[0].length() + 1) / 2;
         char[][] c = new char[lines.length][width];
+
         for (int i = 0; i < lines.length; i++)
             for (int j = 0; j < width; j++)
                 c[i][j] = lines[i].charAt(j * 2);
@@ -26,6 +28,7 @@ public class Solver {
     }
 
 
+    //Fonction qui va trouver la solution en fonction de la case
     public static boolean solveMazeRecursively(char[][] maze, int x, int y, int d) {
 
         boolean ok = false;
@@ -51,9 +54,11 @@ public class Solver {
                         break;
                 }
 
+        //Savoir si la condition est finie
         if (x == 1 && y == 1)
             ok = true;
 
+        //Quand on a une solution, on l'a marque par un signe
         if (ok) {
             maze[y][x] = '*';
             switch (d) {
@@ -78,11 +83,12 @@ public class Solver {
         solveMazeRecursively(maze, maze[0].length - 2, maze.length - 2, -1);
     }
 
-
+    //Fonction qui va remettre le labyrinthe en entier après l'avoir divisé par 2
     public static String[] expandHorizontally(char[][] maze) {
 
         char[] tmp = new char[3];
         String[] lines = new String[maze.length];
+        
         for (int i = 0; i < maze.length; i++) {
             StringBuilder sb = new StringBuilder(maze[i].length * 2);
             for (int j = 0; j < maze[i].length; j++)

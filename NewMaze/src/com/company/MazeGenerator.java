@@ -28,6 +28,9 @@ class MazeGenerator {
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
+        System.out.println(" ");
+        System.out.println("  ⬇️");
+
         //On vient copier le labyrinthe généré dans un fichier txt
         BufferedWriter writer = new BufferedWriter(new FileWriter("maze.txt", false));
 
@@ -89,7 +92,7 @@ class MazeGenerator {
                 maze[nx][ny] |= dir.opposite.bit;
                 display();
                 try {
-                    Thread.sleep(20);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -129,9 +132,11 @@ class MazeGenerator {
     public static void main(String[] args) throws IOException {
 
         Menu menu = new Menu();
+        boolean partie = true;
+        int i = 0;
 
-        for (int i = 1; i < 6; i++) {
-
+        while (partie){
+            i++;
 
             //Commande pour clear la console
             System.out.print("\033[H\033[2J");
@@ -146,6 +151,13 @@ class MazeGenerator {
     }
 
 }
+
+/*
+
+cd /Users/landemainetheo/Documents/GitHub/labyrtinthe-algomvte/NewMaze/
+java -jar untitled104.jar
+
+ */
 
 
 

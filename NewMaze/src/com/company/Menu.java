@@ -100,7 +100,7 @@ public class Menu {
 
         }else if (choix == 2) {
             //On stop le system
-            return;
+            System.exit(0);
 
         }else {
             System.out.println("This option doesn't exist");
@@ -195,9 +195,6 @@ public class Menu {
     }
 
     public void levelMaze(int x, int y) throws IOException {
-
-        System.out.println(" ");
-        System.out.println("  ⬇️");
 
         //On incremente la class MazeGenerator afin de créer le labyrinthe au niveau très difficile
         MazeGenerator maze = new MazeGenerator(x, y);

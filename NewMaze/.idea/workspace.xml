@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="untitled104:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="121af14e-b514-45ea-8055-87bbf95bfbf8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/untitled104_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maze.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maze.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator$DIR.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator$DIR.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/MazeGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MazeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/company/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/untitled104/com/company/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MazeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MazeGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled104.jar" beforeDir="false" afterPath="$PROJECT_DIR$/untitled104.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
