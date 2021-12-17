@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static com.company.Menu.showTitle;
+
 class MazeGenerator {
     private final int x;
     private final int y;
@@ -22,6 +24,7 @@ class MazeGenerator {
 
     //fonction qui va venir afficher la grille du labyrinthe
     public void display() throws IOException {
+
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
@@ -84,12 +87,12 @@ class MazeGenerator {
 
                 //On définit la nouvelle ligne et la nouvelle colonne avec les directions
                 maze[nx][ny] |= dir.opposite.bit;
-//                display();
-//                try {
-//                    Thread.sleep(20);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                display();
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 generateMaze(nx, ny);
             }
         }
@@ -126,17 +129,16 @@ class MazeGenerator {
     public static void main(String[] args) throws IOException {
 
         Menu menu = new Menu();
-        menu.menu();
-        menu.finish();
+
+        for (int i = 1; i < 6; i++) {
+
+            showTitle("Partie " + i);
+            menu.menu();
+            menu.finish();
+
+        }
 
     }
-
-
-
-
-
-
-
 
 }
 

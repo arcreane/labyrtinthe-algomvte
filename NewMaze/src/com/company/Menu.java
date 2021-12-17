@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +16,9 @@ public class Menu {
 
     //On incremente la class du timer
     Chrono timer = new Chrono();
+
+    //On incremente la class du popup
+    JFrame jFrame = new JFrame();
 
     public void menu() throws IOException {
 
@@ -176,18 +180,20 @@ public class Menu {
             //Stop du timer après victoire du joueur
             timer.stop();
 
+            System.out.println(" ");
             showTitle("You  win  against  the  Maze  !");
+            System.out.println(" ");
 
             //Affichage du résultat du timer
-            System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
-
-            menu();
+            JOptionPane.showMessageDialog(jFrame, "You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
+            //System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " to get to the end");
 
         }else if (Objects.equals(end, "SOLUCE")){
 
             //Stop du timer après abandon du joueur
             timer.stop();
 
+            System.out.println(" ");
             showTitle("Voici  la  reponse  = ");
 
             //On incremente la class InputStream
@@ -202,9 +208,14 @@ public class Menu {
             }
 
             //Affichage du résultat du timer
-            System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
+//            System.out.println(" ");
+//            System.out.println("You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
+//            System.out.println(" ");
+
+            JOptionPane.showMessageDialog(jFrame, "You put : " + Chrono.timeToHMS(timer.getDureeSec()) + " before giving up");
 
             showTitle("Try again");
+
 
             //On met un moment de pause afin de laisser afficher le titre
             try {
@@ -213,8 +224,6 @@ public class Menu {
                 e.printStackTrace();
             }
 
-            //On affiche de nouveau le menu pour une nouvelle partie
-            menu();
         }
 
     }
